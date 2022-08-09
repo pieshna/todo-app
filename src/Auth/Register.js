@@ -5,7 +5,8 @@ function Register({register, setClickedRegister}) {
     const [user, setUser] = React.useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        id: Math.random()
     })
     const onChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
