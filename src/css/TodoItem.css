@@ -1,5 +1,19 @@
 .item{
     margin: 1rem;
-    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    width: 80%;
 
+}
+
+p{
+    width: 75%;
+}
+
+button{
+    margin-left: 1rem;
+
+}
+
+input{
+    margin-right: 1rem;
 }
