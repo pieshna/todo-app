@@ -1,0 +1,13 @@
+[{
+    "id": "1",
+    "todo": "Learn React",
+    "completed": false
+}, {
+    "id": "2",
+    "todo": "Learn Redux",
+    "completed": false
+}, {
+    "id": "3",
+    "todo": "Learn React Router",
+    "completed": false
+}]
