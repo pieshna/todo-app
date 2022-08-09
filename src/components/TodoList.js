@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
 import "../css/TodoList.css";
 
-function TodoList ({addTodo,todos, onComplete, onDeleteItem, onEditItem, setLoged}) {
+function TodoList ({addTodo,todos, onComplete, onDeleteItem, onEditItem, setLoged, userIdLogued}) {
   return (
     <div className="container">
         <div className="cabecera">
@@ -13,9 +13,11 @@ function TodoList ({addTodo,todos, onComplete, onDeleteItem, onEditItem, setLoge
         <div>
         <TodoForm addTodo={addTodo}/>
       {
-        todos.map((todo, index) => (
-            <TodoItem todo={todo} key = {index} onComplete={onComplete} onDeleteItem={onDeleteItem} onEditItem={onEditItem}/>
-        ))
+        todos.map((todo, index) => {
+          if(todo.user === userIdLogued){
+            return <TodoItem todo={todo} key = {index} onComplete={onComplete} onDeleteItem={onDeleteItem} onEditItem={onEditItem}/>
+          }
+        })
       }</div>
     </div>
   );

@@ -13,6 +13,7 @@ function App() {
   );
   const [loged, setLoged] = useState(false);
   const [clickedRegister, setClickedRegister] = useState(false);
+  const [userIdLogued, setUserIdLogued] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -40,6 +41,7 @@ function App() {
       id: +new Date(),
       task: newTodo,
       completed: false,
+      user: userIdLogued,
     };
     setTodos([...todos, newItem]);
   };
@@ -53,6 +55,7 @@ function App() {
   const onRegister = (user) => {
     setUsers([...users, user]);
     setClickedRegister(false);
+    setUserIdLogued(user.id);
     setLoged(true);
   };
   const onLogin = (user) => {
@@ -61,6 +64,7 @@ function App() {
       users.find((u) => {
         if (u.email === user.email && u.password === user.password) {
           console.log("loged in");
+          setUserIdLogued(u.id);
           setLoged(true);
         } else if (u.email === user.email && u.password !== user.password) {
           alert("Email o contraseña incorrectos");
@@ -73,8 +77,10 @@ function App() {
 
   return (
     <div className="App">
+      {console.log(userIdLogued)}
       {loged ? (
         <TodoList
+          userIdLogued={userIdLogued}
           setLoged={setLoged}
           addTodo={addTodo}
           todos={todos}
